@@ -1,6 +1,12 @@
 import React from 'react';
-
-const Profile = () => {
+import {useHistory} from 'react-router-dom'
+import {useEffect} from 'react'
+const Profile = ({login}) => {
+    const history = useHistory();
+    if(!login) { history.push('/home')}
+    useEffect(()=> {
+        if(!login) { history.push('/home')}
+    }, [history, login])
     return (
         <div>
             <h2>Profile</h2>

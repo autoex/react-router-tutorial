@@ -20,7 +20,7 @@ const App = () => {
                     <Route path={'/home'} component={Home}/>
                     <Route path={'/about'} component={About}/>
                   <Route path={'/profile'} >
-                    {login ? <Profile/> : <Redirect to='/home' />}
+                    <Profile login={login}/>
                   </Route>
                     <Route path={'/post/:id?'} component={Post}/>
                     <Route  component={NotFound}/>
