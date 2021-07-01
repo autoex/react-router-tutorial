@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from "./components/Header";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
@@ -19,7 +19,9 @@ const App = () => {
                 <Switch>
                     <Route path={'/home'} component={Home}/>
                     <Route path={'/about'} component={About}/>
-                    <Route path={'/profile'} component={Profile}/>
+                  <Route path={'/profile'} >
+                    {login ? <Profile/> : <Redirect to='/home' />}
+                  </Route>
                     <Route path={'/post/:id?'} component={Post}/>
                     <Route  component={NotFound}/>
                 </Switch>
