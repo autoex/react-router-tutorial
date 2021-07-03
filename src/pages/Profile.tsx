@@ -1,11 +1,14 @@
 import React from 'react';
 import {Link, Route, Switch, useHistory, useRouteMatch} from 'react-router-dom'
 import {useEffect} from 'react'
-import Home from "./Home";
 import ViewProfile from "./ViewProfile";
 import EditProfile from "./EditProfile";
 
-const Profile = ({login}) => {
+type  ProfileProps = {
+        login: boolean
+}
+
+const Profile = ({login}:ProfileProps) => {
     const history = useHistory();
     if (!login) {
         history.push('/home')
@@ -24,7 +27,7 @@ const Profile = ({login}) => {
 
             <ul>
                 <li>
-                    <Link to={`${url}/viewprofile`}>View profile</Link>
+                    dd<Link to={`${url}/viewprofile`}>View profile</Link>
                 </li>
                 <li>
                     <Link to={`${url}/editprofile`}>Edit profile</Link>
